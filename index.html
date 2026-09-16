@@ -3,217 +3,167 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LimBuilder</title>
-  <meta name="description" content="LimBuilder — tools &amp; experiments. Free utilities including yt-converter (YouTube to MP3 &amp; MP4).">
+
+  <title>LimBuilder - Web Tools, AI Tools &amp; Developer Experiments</title>
+  <meta
+    name="description"
+    content="LimBuilder is an independent developer project hub featuring useful web tools, AI-powered utilities, and experimental products."
+  >
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://limbuilder.github.io/">
+
+  <meta name="google-site-verification" content="zpI_0-mNkgyWQJL0RUiXkuK_0MgeXlYWRO9-o27cleg">
+
+  <meta property="og:title" content="LimBuilder - Web Tools &amp; AI Experiments">
+  <meta
+    property="og:description"
+    content="Explore web tools, AI utilities and experimental products built by LimBuilder."
+  >
+  <meta property="og:url" content="https://limbuilder.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://limbuilder.github.io/assets/images/og-image.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="LimBuilder">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LimBuilder - Web Tools &amp; AI Experiments">
+  <meta
+    name="twitter:description"
+    content="Useful web tools, AI-powered utilities and developer experiments."
+  >
+  <meta name="twitter:image" content="https://limbuilder.github.io/assets/images/og-image.png">
+
   <link rel="icon" href="https://github.com/limbuilder.png?size=64" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Syne:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111;
-      --border: #2a2a2a;
-      --text: #fff;
-      --muted: #888;
-      --accent: #00acb3;
-      --max: 420px;
-    }
+  <link rel="stylesheet" href="/assets/css/main.css">
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-    }
-
-    body {
-      font-family: "DM Sans", system-ui, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 172, 179, 0.14), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(0, 96, 224, 0.08), transparent 50%),
-        var(--bg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 20px 32px;
-    }
-
-    main {
-      width: 100%;
-      max-width: var(--max);
-      text-align: center;
-    }
-
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-      display: block;
-      margin: 0 auto 20px;
-      animation:
-        rise-in 0.7s ease both,
-        breathe 4.5s ease-in-out 0.9s infinite;
-    }
-
-    h1 {
-      font-family: Syne, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.75rem, 5vw, 2rem);
-      letter-spacing: -0.02em;
-      margin: 0 0 8px;
-      animation: rise-in 0.7s ease 0.08s both;
-    }
-
-    .tagline {
-      margin: 0 0 32px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 400;
-      animation: rise-in 0.7s ease 0.16s both;
-    }
-
-    .links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 12px;
-      animation: rise-in 0.7s ease 0.24s both;
-    }
-
-    .links a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      text-decoration: none;
-      color: inherit;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      text-align: left;
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .links a:hover,
-    .links a:focus-visible {
-      border-color: var(--accent);
-      background: #121616;
-      outline: none;
-    }
-
-    .links a:focus-visible {
-      box-shadow: 0 0 0 3px rgba(0, 172, 179, 0.35);
-    }
-
-    .links .title {
-      font-weight: 600;
-      font-size: 0.98rem;
-    }
-
-    .links .desc {
-      display: block;
-      margin-top: 4px;
-      color: var(--accent);
-      font-size: 0.8rem;
-    }
-
-    .links .arrow {
-      color: #555;
-      font-size: 1.1rem;
-      transition: transform 0.2s ease, color 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .links a:hover .arrow,
-    .links a:focus-visible .arrow {
-      transform: translateX(4px);
-      color: var(--accent);
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #444;
-      font-size: 0.75rem;
-      animation: rise-in 0.7s ease 0.32s both;
-    }
-
-    @keyframes rise-in {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes breathe {
-      0%,
-      100% {
-        border-color: var(--border);
-        box-shadow: 0 0 0 0 rgba(0, 172, 179, 0);
-      }
-      50% {
-        border-color: rgba(0, 172, 179, 0.55);
-        box-shadow: 0 0 0 4px rgba(0, 172, 179, 0.08);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .avatar,
-      h1,
-      .tagline,
-      .links,
-      footer {
-        animation: none;
-      }
-
-      .links a,
-      .links .arrow {
-        transition: none;
-      }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LimBuilder",
+    "url": "https://limbuilder.github.io/",
+    "description": "Web tools, AI utilities and developer experiments."
+  }
+  </script>
 </head>
 <body>
-  <main>
-    <img
-      class="avatar"
-      src="https://github.com/limbuilder.png?size=200"
-      width="96"
-      height="96"
-      alt="LimBuilder avatar"
-    >
-    <h1>LimBuilder</h1>
-    <p class="tagline">tools &amp; experiments</p>
-    <ul class="links">
-      <li>
-        <a href="/yt-converter/" target="_blank" rel="noopener noreferrer">
-          <span>
-            <span class="title">yt-converter</span>
-            <span class="desc">Free YouTube → MP3 / MP4</span>
-          </span>
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
-      </li>
-    </ul>
-  </main>
-  <footer>© LimBuilder</footer>
+  <div class="page">
+    <header>
+      <img
+        class="avatar"
+        src="https://github.com/limbuilder.png?size=200"
+        width="96"
+        height="96"
+        alt="LimBuilder avatar"
+      >
+      <h1>LimBuilder</h1>
+      <p class="intro">
+        Independent developer building useful web tools, AI utilities,
+        and experimental online products.
+      </p>
+    </header>
+
+    <main>
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+        <ul class="projects">
+          <li>
+            <article>
+              <a href="/yt-converter/">
+                <div>
+                  <h3>YouTube Converter</h3>
+                  <p class="desc">
+                    A simple browser-based tool for converting YouTube videos
+                    to MP3 or MP4 formats. Free to use, no signup required.
+                  </p>
+                  <span class="meta">limbuilder.github.io</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article>
+              <a href="https://videotextremover.org/" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <h3>Video Text Remover</h3>
+                  <p class="desc">
+                    An AI-powered tool for automatically removing subtitles,
+                    captions and burned-in text from videos.
+                  </p>
+                  <span class="meta">videotextremover.org</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article>
+              <a href="https://personremover.org/" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <h3>Person Remover</h3>
+                  <p class="desc">
+                    Automatically detect and remove unwanted people from photos
+                    while keeping the background looking natural.
+                  </p>
+                  <span class="meta">personremover.org</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article>
+              <a href="https://csvviewer.net/" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <h3>CSV Viewer</h3>
+                  <p class="desc">
+                    A fast online CSV viewer for opening and exploring CSV files
+                    directly in the browser.
+                  </p>
+                  <span class="meta">csvviewer.net</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About LimBuilder</h2>
+        <p>
+          LimBuilder is an independent developer project focused on building
+          practical web tools, AI utilities and lightweight online products.
+          The goal is simple: ship small, useful applications that solve real
+          problems without unnecessary complexity.
+        </p>
+        <p>
+          Projects range from media processing tools—such as YouTube conversion
+          and video text removal—to developer utilities like an in-browser CSV
+          viewer. Some tools live on this GitHub Pages site; others are
+          standalone products with their own domains.
+        </p>
+        <p>
+          This homepage is the central directory for current and future LimBuilder
+          experiments. New tools will be listed here as they launch, with clear
+          descriptions and direct links so visitors and search engines can find
+          them easily.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <span>© LimBuilder</span>
+      <nav aria-label="External links">
+        <a href="https://github.com/limbuilder" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://ko-fi.com/V7V815V9PG" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+      </nav>
+    </footer>
+  </div>
 </body>
 </html>

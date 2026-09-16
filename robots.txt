@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://limbuilder.github.io/sitemap.xml
