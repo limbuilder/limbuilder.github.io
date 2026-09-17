@@ -102,7 +102,8 @@ h2 {
   margin: 0;
 }
 
-.projects a {
+.projects a,
+.project-dead {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -116,6 +117,14 @@ h2 {
   transition:
     border-color 0.2s ease,
     background 0.2s ease;
+}
+
+.project-dead {
+  opacity: 0.72;
+}
+
+.project-dead .meta {
+  color: #666;
 }
 
 .projects a:hover,
